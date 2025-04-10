@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Road Accident prone Area Management</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+{% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+   <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="{% static 'img/log.png' %}" height="80px">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a class="active" href="/">HOME</a></li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                            <div class="social_wrap d-flex align-items-center justify-content-end">
+                                <div class="login_text">
+                                    <a href="{% url 'logins' %}">LOGIN</a>
+                                </div>
+                                <div class="number">
+                                    <p>Call us <a href="#">+001 325 589</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+{% block content %}
+
+{% endblock %}    <!-- footer_start  -->
+
+<footer class="footer footer_bg_1">       
+    <div class="footer_top">           
+        <div class="container">               
+            <div class="row">                   
+                <div class="col-xl-3 col-md-6 col-lg-3">                       
+                    <div class="footer_widget ">                           
+                        <h3 class="footer_title">                               About U                            </h3>                           
+                        <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing days open</p>                           
+                        <div class="footer_logo">                               
+                            <a href="#">                                   
+                                <img src="img/footer_logo.png" alt="">                               
+                            </a>                           
+                        </div>                       
+                    </div>                   
+                </div>                   
+                <div class="col-xl-3 col-md-6 col-lg-3">                       
+                    <div class="footer_widget ">                           
+                        <h3 class="footer_title">                               Contact Info                           </h3>                           
+                        <p>Address :Your address goes                               here, your demo address.</p>                           
+                        <ul>                               
+                            <li><a href="#">Phone : +8880 44338899</a></li>                               
+                            <li><a href="#">Email : info@.com</a></li>                           </ul>                       
+                        </div>                   
+                    </div>                   
+                    <div class="col-xl-3 col-md-6 col-lg-3">                       
+                        <div class="footer_widget ">                           
+                            <h3 class="footer_title">                               Important Link                           </h3>                           
+                            <ul>                               
+                                <li><a href="#">View Project</a></li>                               
+                                <li><a href="#">Contact Us</a></li>                               
+                                <li><a href="#">Testimonial</a></li>                               
+                                <li><a href="#">Proparties</a></li>                               
+                                <li><a href="#">Support</a></li>                           
+                            </ul>                       
+                        </div>                   
+                    </div>                   
+                    <div class="col-xl-3 col-md-6 col-lg-3">                       
+                        <div class="footer_widget">                           
+                            <h3 class="footer_title">                               Newsletter                           </h3>                           
+                            <p class="newsletter_text">                               Heaven fruitful doesn't over lesser in days. Appear creeping seasons                           </p>
+                            <form action="#" class="newsletter_form">                               
+                                <input type="text" placeholder="Enter your mail">                               
+                                <button type="submit"> <i class="fa fa-paper-plane"></i> </button>                           
+                            </form>                       
+                        </div>                   
+                    </div>                
+                </div>           
+            </div>       
+        </div>       
+        <div class="copy-right_text">           
+            <div class="container">               
+                <div class="footer_border"></div>               
+                <div class="row">                   
+                    <div class="col-lg-8">                       
+                        <p class="copy_right">                           <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> 
+                            All rights reserved | 
+                            <i class="fa fa-heart" aria-hidden="true"></i> 
+                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>                       
+                            </p>                   
+                        </div>                   
+                        <div class="col-lg-4">                       
+                            <div class="socail_links">                           
+                                <ul>                               
+                                    <li>                                   
+                                        <a href="#">                                       
+                                            <i class="ti-facebook"></i>                                   
+                                        </a>                               
+                                    </li>                               
+                                    <li>                                   
+                                        <a href="#">                                       
+                                            <i class="fa fa-twitter"></i>                                   
+                                        </a>                               
+                                    </li>                               
+                                    <li>                                   
+                                        <a href="#">                                       
+                                            <i class="fa fa-dribbble"></i>                                   
+                                        </a>                               
+                                    </li>                               
+                                    <li>                                   
+                                        <a href="#">                                       
+                                            <i class="fa fa-behance"></i>                                   
+                                        </a>                               
+                                    </li>                           
+                                </ul>                       
+                            </div>                   
+                        </div>               
+                    </div>           
+                </div>        
+            </div>   
+        </footer>
+
+<br>
+    <br><br><br><br>
+
+
+    <!-- JS here -->
+    <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/ajax-form.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/scrollIt.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/gijgo.min.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/cme.js' %}"></script>
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+
+
+
+    <!--contact js-->
+    <script src="{% static 'js/contact.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/mail-script.js' %}"></script>
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

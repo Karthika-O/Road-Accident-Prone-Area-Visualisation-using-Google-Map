@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+    <div class="slider_area">
+        <div >
+            <div class="single_slider overlay"  style="background-image: url({% static 'img/migration.png' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <div class="about_area" STYLE="padding-top: 40px; width: 500px;height: 400px">
+{#        <div class="container">#}
+{#            <div class="row">#}
+                                   <h1>Login</h1>
+{#                <div class="col-lg-5">#}
+{##}
+{#                </div>#}
+
+                <div  style="width: 100%;padding-right: 30px">
+
+                        <div class="section_title mb-55">
+
+                            <form  method="POST">
+                                {% csrf_token %}
+                                <div class="form-group" >
+                                    <input  class="form-control valid" style="width: 500px" name="username" id="email" type="text"
+                                           onfocus="this.placeholder = ''"
+                                           onblur="this.placeholder = 'Enter username'"  placeholder="Enter username">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control valid" style="width: 500px" name="password" id="email" type="password"
+                                           onfocus="this.placeholder = ''"
+                                           onblur="this.placeholder = 'Enter password'" placeholder="Enter password">
+                                </div>
+                                <button type="submit"  class="btn btn-primary login-btn mb-4">Login</button>
+                            </form>
+                        </div>
+                        <label style="color: white">If Your Are Not Signup </label><span style="padding-left: 20px"></span><a href="SignUp"  type="submit" class="btn btn-primary login-btn mb-4">SignUp</a>
+                        <div class="info_inner">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <!-- about_area_start  -->
+
+    <!-- about_area_end  -->
+{% endblock %}

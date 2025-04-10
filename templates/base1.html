@@ -1,0 +1,86 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/> 
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/owl.theme.default.min.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+
+    <title>MY MAP</title>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+
+
+    <!-- TOP NAV -->
+    <div class="top-nav" id="home">
+        <div class="container">
+<!--            <div class="row justify-content-between">-->
+<!--                <div class="col-auto">-->
+<!--                    <p> <i class='bx bxs-envelope'></i> info@example.com</p>-->
+<!--                    <p> <i class='bx bxs-phone-call'></i> 123 456-7890</p>-->
+<!--                </div>-->
+<!--                <div class="col-auto social-icons">-->
+<!--                    <a href="#"><i class='bx bxl-facebook'></i></a>-->
+<!--                    <a href="#"><i class='bx bxl-twitter'></i></a>-->
+<!--                    <a href="#"><i class='bx bxl-instagram'></i></a>-->
+<!--                    <a href="#"><i class='bx bxl-pinterest'></i></a>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ROAD ACCIDENT PRONE AREA VISUALIZATION<span class="dot">.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accident_map' %}">Search Map</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'heatmap_data' %}">HEAT MAP</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">SignUp</a>
+                    </li>
+
+                </ul>
+                    <a href="{% url 'logins' %}" class="btn btn-brand">Login</a>
+
+            </div>
+        </div>
+    </nav>
+{% block content %}
+
+{% endblock %}
+
+    <script src="{% static 'asset/js/jquery.min.js' %}"></script>
+    <script src="{% static 'asset/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'asset/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'asset/js/app.js' %}"></script>
+</body>
+
+</html>

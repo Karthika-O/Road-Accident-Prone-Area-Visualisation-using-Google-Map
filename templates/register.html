@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1"  style="background-image: url({% static 'img/work.png' %});" xmlns="http://www.w3.org/1999/html">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>Authority Register</h3>
+                        <p> <a href="index.html">Home</a> / About</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+
+    <table align="center" width="500px" >
+    <tr>
+        <br>
+            <td><label>First Name</label></td>
+            <td><input class="form-control valid" name="pfirstna"  type="text" required placeholder="Enter First name"> </td>
+            </tr>
+            <tr>
+                <td><label>Last Name</label></td>
+                <td><input required class="form-control valid" name="plastna"  type="text" placeholder="Enter Last name"></td>
+            </tr>
+            <tr>
+            <td><label>Gender</label></td>
+            <td><label><input class="form-control valid" name="pgender" value="Male" type="radio" required>  Male </label>
+                 <label><input class="form-control valid" name="pgender" value="Female" type="radio" required>Female</label></td>
+            </tr>
+            <tr>
+                <td><label>Date Of Birth</label></td>
+                <td><input required class="form-control valid" name="pdob"  type="date" placeholder="Enter DOB"></td>
+            </tr>
+             <tr>
+                <td><label>Permanant Address</label></td>
+                <td><input required class="form-control valid" name="pPermanantAddress"  type="text" placeholder="Enter Permanant Address"></td>
+            </tr>
+            <tr>
+                <td><label>Temporary Address</label></td>
+                <td><input required class="form-control valid" name="pTemporaryAddress"  type="text" placeholder="Enter Temporary Address"></td>
+            </tr>
+            <tr>
+            <td> <label>Phone number</label></td>
+            <td><input required class="form-control valid" name="pcontact"  type="text" pattern="[0-9]{10}" placeholder="Enter phone number"></td>
+            </tr>
+            <tr>
+            <td><label>District</label></td>
+            <td><input required name="pDistrict" class="form-control valid" placeholder="Enter District"></td>
+            </tr>
+            <tr>
+                <td><label>Upload Your ID proof</label></td>
+                <td><input required class="form-control valid" name="pIDproof"  type="file"></td>
+            </tr>
+            <tr>
+                <td><label>Upload Your Photo</label></td>
+                <td><input required class="form-control valid" name="pPhoto"  type="file"></td>
+            </tr>
+            <tr>
+                <td><label>Badge Number</label></td>
+                <td><input required class="form-control valid" name="pbadgeno"  type="text" placeholder="Enter Badge Number"></td>
+            </tr>
+            <tr>
+                <td><label>Designation</label></td>
+                <td><input required class="form-control valid" name="pdesign"  type="text" placeholder="Enter Designation"></td>
+            </tr>
+            <tr>
+                <td><label>Jurisdiction</label></td>
+                <td><input required class="form-control valid" name="pjuri"  type="text" placeholder="Enter Jurisdiction"></td>
+            </tr>
+            <tr>
+                <td><label>Email</label></td>
+                <td><input required class="form-control valid" name="email"  type="text" placeholder="Enter Email"></td>
+            </tr>
+            <tr>
+                <td><label>Password</label></td>
+                <td><input required class="form-control valid" name="password"  type="password" placeholder="Enter password"></td>
+            </tr>
+        
+
+     <tr align="center">
+          <td><button type="submit"  class="btn btn-primary login-btn mb-4">Submit</button></td>
+          <td><a href="" type="submit"  class="btn btn-primary login-btn mb-4">Cancel</a></td>
+     </tr>
+    </table>
+    </form>
+
+
+    <!-- about_area_end  -->
+{% endblock %}

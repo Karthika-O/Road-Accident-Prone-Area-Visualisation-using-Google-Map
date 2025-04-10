@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accident Prone Area Map</title>
+    <style>
+        #map {
+            height: 90vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Live Accident Prone Area Map</h2>
+<div id="map"></div>
+
+<script>
+    const accidentData = {{ accident_data|safe }};
+    let map;
+    let userMarker;
+
+    function getMarkerIcon(severity) {
+        if (severity >= 15) {
+            return "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+        } else if (severity >= 7) {
+            return "http://maps.google.com/mapfiles/ms/icons/orange-dot.png";
+        } else {
+            return "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+        }
+    }
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 10.0, lng: 76.3 },
+            zoom: 10,
+        });
+
+        accidentData.forEach((accident) => {
+            const position = { lat: accident.lat, lng: accident.lng };
+            const icon = getMarkerIcon(accident.severity);
+
+            const marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                icon: icon,
+                title: `${accident.location} (${accident.road_name})`
+            });
+
+            const infoContent = `
+                <strong>${accident.location}</strong><br>
+                District: ${accident.district}<br>
+                Police Station: ${accident.police_station}<br>
+                Road: ${accident.road_name}<br>
+                Total Accidents: ${accident.total_accidents}<br>
+                Fatalities: ${accident.total_fatalities}<br>
+                Severity Score: ${accident.severity.toFixed(1)}
+            `;
+
+            const infoWindow = new google.maps.InfoWindow({ content: infoContent });
+
+            marker.addListener("click", () => {
+                infoWindow.open(map, marker);
+            });
+        });
+
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition((position) => {
+                const userPos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                if (!userMarker) {
+                    userMarker = new google.maps.Marker({
+                        position: userPos,
+                        map: map,
+                        title: "Your Location",
+                        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                    });
+                } else {
+                    userMarker.setPosition(userPos);
+                }
+
+                // Alert if user is within 0.5 km of an accident zone
+                accidentData.forEach((accident) => {
+                    const dist = getDistance(userPos.lat, userPos.lng, accident.lat, accident.lng);
+                    if (dist <= 0.5) {
+                        alert(`⚠️ ALERT: You're near an accident-prone zone at ${accident.road_name}!`);
+                    }
+                });
+
+            }, () => alert("Unable to get location."));
+        } else {
+            alert("Geolocation not supported.");
+        }
+    }
+
+    function getDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371;
+        const dLat = deg2rad(lat2 - lat1);
+        const dLon = deg2rad(lon2 - lon1);
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    }
+
+    function deg2rad(deg) {
+        return deg * (Math.PI / 180);
+    }
+</script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoS_DwYOjPplap2K6XAgd_izJ-NlLa6m4&callback=initMap">
+</script>
+
+</body>
+</html>
